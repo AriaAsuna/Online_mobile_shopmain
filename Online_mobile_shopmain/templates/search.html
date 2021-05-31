@@ -1,0 +1,28 @@
+{% extends 'Home.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="GET" >
+                <input type="text" name="keyword" placeholder="Search here" required>
+                <button>search</button>
+                </form>
+                <hr>
+                {% for result in results %}
+                    <div>
+                        <div class="col-md-4">
+                            <img src="{{ result.image.url }}"class="img-fluid"alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <h4>{{ result.product_name }}</h4>
+                            <p>{{ result.product_details }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
